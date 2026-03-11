@@ -17,6 +17,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header */
@@ -35,6 +37,13 @@ header {
     display: flex;
     align-items: center;
     padding: 30px 0;
+    flex-wrap: wrap;
+}
+
+/* Navigation fix - moves to top */
+nav {
+    order: -1;
+    margin-bottom: 10px;
 }
 
 .avatar {
@@ -341,28 +350,38 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Responsive */
+/* Responsive - with fixes */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
         text-align: center;
-        padding: 20px 0;
+        padding: 15px 0;
     }
 
     .avatar {
-        margin-bottom: 20px;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
         margin-right: 0;
+    }
+
+    .header-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-text p {
+        font-size: 1rem;
     }
 
     nav ul {
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 10px;
         flex-wrap: wrap;
+        padding: 10px 0;
     }
 
     nav ul li {
-        margin-left: 20px;
-        margin-bottom: 10px;
+        margin: 5px 15px;
     }
 
     .section {
@@ -376,6 +395,7 @@ footer {
 
     .skills-grid, .projects-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
     }
 
     .contact-list {
