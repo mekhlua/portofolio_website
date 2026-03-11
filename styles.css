@@ -17,8 +17,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Header */
@@ -36,14 +34,7 @@ header {
 .header-content {
     display: flex;
     align-items: center;
-    padding: 30px 0;
-    flex-wrap: wrap;
-}
-
-/* Navigation fix - moves to top */
-nav {
-    order: -1;
-    margin-bottom: 10px;
+    padding: 20px 0;
 }
 
 .avatar {
@@ -113,7 +104,7 @@ nav ul li a:hover {
     color: #00d4ff;
 }
 
-/* Sections */
+/* Sections - FIXED for mobile */
 .section {
     padding: 120px 0 80px;
     background: rgba(255, 255, 255, 0.05);
@@ -123,6 +114,11 @@ nav ul li a:hover {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.1);
     animation: fadeInUp 0.8s ease-out;
+}
+
+/* THIS IS THE KEY FIX - Add space at the top of each section */
+#about, #skills, #projects, #contact {
+    scroll-margin-top: 100px;
 }
 
 @keyframes fadeInUp {
@@ -350,79 +346,125 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Responsive - with fixes */
+/* Responsive - COMPLETE MOBILE FIX */
 @media (max-width: 768px) {
+    /* Make header more compact */
     .header-content {
         flex-direction: column;
         text-align: center;
-        padding: 15px 0;
+        padding: 5px 0;
     }
 
     .avatar {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 15px;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 5px;
         margin-right: 0;
     }
 
     .header-text h1 {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
+        margin-bottom: 3px;
     }
 
     .header-text p {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     nav ul {
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 0;
         flex-wrap: wrap;
-        padding: 10px 0;
+        padding: 5px 0;
     }
 
     nav ul li {
-        margin: 5px 15px;
+        margin: 0 8px 5px;
+    }
+    
+    nav ul li a {
+        font-size: 0.85rem;
     }
 
+    /* DIRECT FIX - Add padding to the first section instead */
+    #about {
+        margin-top: 160px !important;
+    }
+
+    /* Adjust section padding */
     .section {
-        padding: 100px 0 60px;
-        margin: 20px 0;
+        padding: 60px 0 40px;
+        margin: 10px 0;
     }
 
     .section h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    /* About section text size */
+    #about p {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+    }
+    
+    #about blockquote {
+        font-size: 0.95rem;
+        padding: 12px;
+        margin-top: 20px;
     }
 
     .skills-grid, .projects-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 15px;
     }
-
+    
+    .skill-category {
+        padding: 15px;
+    }
+    
+    .skill-category h3 {
+        font-size: 1.3rem;
+    }
+    
+    .skill-category li {
+        font-size: 0.9rem;
+    }
+    
+    .project {
+        padding: 15px;
+    }
+    
+    .project h3 {
+        font-size: 1.2rem;
+    }
+    
+    .project p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .project a {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
     .contact-list {
         flex-direction: column;
-        gap: 20px;
-    }
-}
-/* Add this to fix mobile scrolling issue */
-html {
-    scroll-padding-top: 120px; /* Adjusts scroll position to account for fixed header */
-    scroll-behavior: smooth;
-}
-
-@media (max-width: 768px) {
-    html {
-        scroll-padding-top: 150px; /* Even more padding on mobile for taller header */
+        gap: 10px;
     }
     
-    /* Adjust section padding for mobile */
-    .section {
-        padding: 100px 0 60px;
-        margin: 20px 0;
-        scroll-margin-top: 120px; /* Alternative method for individual sections */
+    .contact-list a {
+        font-size: 1rem;
     }
     
-    /* Ensure first section doesn't get hidden */
-    #about {
-        scroll-margin-top: 130px;
+    #contact p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    
+    footer {
+        padding: 20px 0;
+        font-size: 0.85rem;
     }
 }
